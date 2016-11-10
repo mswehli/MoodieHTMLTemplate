@@ -1,0 +1,148 @@
+/* Basic layout */
+@mixin layout-item
+{
+    width:100%;
+    min-width:320px;
+    box-sizing: border-box;
+}
+@mixin content-centered
+{
+    width:100%;
+    max-width:$max_width;
+    margin:0 auto;
+}
+@mixin grid-container($unitSize:4,$xunits:"", $yunits:"",$maxWidth:100%)
+{
+    vertical-align: top;
+    display:inline-block;
+    margin:0;
+    font-size:0;
+    
+    @if($xunits!=""){
+    @if(unit($xunits)==""){
+        width: units2pixels($xunits) + ($spacing*2);
+    } @else {
+        width:$xunits;
+    }
+    }
+    max-width:$maxWidth;
+    
+    @if($yunits!=""){
+        @if(unit($yunits)=="")
+        {
+            height: units2pixels($yunits) + $spacing;
+        } 
+        @else {
+            height:$yunits;
+        }
+    }
+    padding:$spacing 0 0 $spacing;
+
+    &>*{
+        vertical-align: top;
+        display:inline-block;
+        margin:0 $spacing $spacing 0;
+        //set default width and height
+        height:units2pixels($unitSize);
+        width:units2pixels($unitSize);
+    }
+}
+
+@mixin grid-subgrid($unitSize:2, $xunits:4, $yunits:4)
+{
+    height:units2pixels($xunits)+($spacing);
+    width:units2pixels($yunits)+($spacing);
+    
+    padding:0;
+    margin:0;
+    box-sizing: content-box;
+    &>*{
+        vertical-align: top;
+        display:inline-block;
+        margin:0 $spacing $spacing 0;
+
+        //set default width and height
+        height:units2pixels($unitSize);
+        width:units2pixels($unitSize);
+    }
+}
+
+@mixin grid-item($xunits:"" /*, $yunits*/) //Yunits currently disabled until can be done properly
+{
+    /*vertical-align: top;
+    display:inline-block;
+    margin:0 $spacing $spacing 0;*/
+    @if($xunits!=""){
+        width: units2pixels($xunits);
+    }
+    /*height: units2pixels($yunits);*/
+}
+
+/* FLEX ITEMS */
+@mixin flex($direction, $wrap)
+{
+	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+	
+	-webkit-flex-flow: $direction $wrap;
+    -ms-flex-direction: $direction;
+    -ms-flex-wrap: $wrap;
+    flex-flow: $direction $wrap;
+}
+
+@mixin flex-justify($justify)
+{
+	-ms-flex-pack: $justify;
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+}
+@mixin flex-align-content($align)
+{
+	 -ms-flex-line-pack: $align;
+    -webkit-align-content: $align;
+    align-content: $align;
+}
+@mixin flex-align-items($align)
+{
+	-webkit-align-items: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+}
+@mixin flex-item($grow, $shrink, $basis)
+{
+    @if($basis != auto){
+     @if(unit($basis)==""){
+        $basis: units2pixels($basis);
+    }
+    }
+    
+	-webkit-flex: $grow $shrink $basis;
+    -moz-flex: $grow $shrink $basis;
+    flex: $grow $shrink $basis;
+}
+
+//CHECK AND REWORK!
+/*@mixin grid-flex-container($grow, $shrink, $basis)
+{
+    @include flex-item($grow, $shrink, units2pixels($basis)+$spacing);
+    margin:0;
+}
+
+@mixin grid-flex-item($grow, $shrink, $basis)
+{
+    @include flex-item($grow, $shrink, $basis);
+    margin:$spacing 0 0 $spacing;
+}*/
+
+
+/* Transitions */
+@mixin transition($selector, $time, $func:ease, $delay:0s)
+{
+	-webkit-transition:$selector $time $func $delay;
+	-moz-transition:$selector $time $func $delay;
+	-o-transition:$selector $time $func $delay;
+	transition:$selector $time $func $delay;
+}

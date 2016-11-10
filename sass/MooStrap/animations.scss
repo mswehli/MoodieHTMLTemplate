@@ -1,0 +1,32 @@
+@keyframes loading-icon-heartbeat
+{
+    0%
+    {
+        position:relative;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+    }
+
+    50%{
+        width:100%;
+        height:100%;
+        position:relative;
+        left:0%;
+        top:-15%;
+    }
+
+    100%{
+        position:relative;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+    }
+
+}
+
+.loading-icon-heartbeat{
+    animation:2s loading-icon-heartbeat infinite ease-in;
+}

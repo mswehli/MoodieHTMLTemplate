@@ -1,0 +1,50 @@
+#colors-container
+{
+     @include grid-container(4);
+
+     .color-box
+     {
+         @include grid-item();
+         background-color:$color_accent_light;
+     }
+}
+
+#grid-system-container
+{   
+    @include grid-container();
+    background-color:$color_accent_light;
+
+    .grid-item{
+        @include grid-item(4);
+        background-color:$color_accent_mid;
+    }
+
+    .grid-item-Wx2{
+        @include grid-item(8);
+        background-color:$color_accent_mid;
+    }
+    
+    .grid-item-Wx3{
+        @include grid-item(12);
+        background-color:$color_accent_mid;
+    }
+
+    .grid-item-subgrid{
+        @include grid-subgrid(2,4,4);
+
+        .grid-item{
+            @include grid-item(2);
+            background-color:$color_accent_mid;
+        }
+
+        .grid-item-subgrid-subgrid{
+            @include grid-subgrid(1,2,2);
+
+            .grid-item{
+                @include grid-item(1);
+                background-color:$color_accent_mid;
+            }
+        }
+    }
+
+}

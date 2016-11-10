@@ -1,0 +1,6 @@
+/* Size and dimensions */
+
+@function units2pixels($size)
+{
+    @return ($size*$unit)+(($size - 1)*$spacing)
+}
