@@ -1,0 +1,101 @@
+
+/* Different components that can be reused through sites directly */
+select,
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="tel"],
+input[type="button"],
+input[type="submit"]
+{
+    height:$unit;
+}
+
+input-section
+{
+    
+
+    @include flex(column,nowrap);
+    max-width:100%;
+    
+    border-bottom: 1px solid #333;
+
+    &::last-child{
+        border:none;
+    }
+
+    input-row
+    {
+        @include flex-item(1,0,100%);
+        @include flex(row,wrap);
+        
+    }
+
+
+    &.horizontal
+    {
+        @include flex(row,nowrap);
+
+        input-row
+        {
+            @include flex-item(1,0,auto);
+            @include flex(column,wrap);
+
+        }
+
+    }
+
+
+    
+
+}
+
+input-group
+{
+    @include flex(row,wrap);
+
+    padding:$spacing;
+
+    input-set{
+        padding:0;
+    }
+}
+
+input-set
+{
+    //flex-item
+    @include flex-item(0,0,auto);
+    
+    padding:$spacing;
+
+    &.xs{
+        @include flex-item(0.125,0,units2pixels(2));
+    }
+    &.s{
+        flex-basis: units2pixels(3);
+    }
+    &.m{
+        flex-basis: units2pixels(4);
+    }
+    &.l{
+        flex-basis: units2pixels(6);
+    }
+    &.xl{
+        @include flex-item(1,0,units2pixels(8));
+    }
+
+    label{
+        display:block;
+        line-height:$unit;
+        width:100%;
+    }
+
+    input,
+    select,
+    textarea
+    {
+            width:100%;
+    }
+}

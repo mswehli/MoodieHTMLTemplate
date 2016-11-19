@@ -3,6 +3,8 @@
    <head>
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="description" content="">
+       
        <title>Title</title>
        <link rel="stylesheet" href="CSS/main.css">
    </head>
@@ -64,5 +66,57 @@
                 </ul>
             </div>
        <h2>Form</h2>
+
+       <div id="form-container">
+           <form action="">
+               <input-section>
+                    <input-row>
+                        <input-set class="xs">
+                            <label for="">Title</label>
+                            <select name="" id="">
+                                <option value="Mr">
+                                    Mr
+                                </option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </input-set>
+                       <input-set>
+                            <label for="">First Name</label>
+                            <input type="text">
+                       </input-set>
+                       <input-set>
+                            <label for="">Last Name</label>
+                            <input type="text">
+                       </input-set>
+                    </input-row>
+
+                   
+               </input-section>
+
+               <input-section>
+                    <input-row>
+                        <input-group>
+                            <input-set class="xs">
+                                <label for="">Number</label>
+                                <input type="text">
+                            </input-set>
+                            <input-set class="xl">
+                                <label for="">Line 1</label>
+                                <input type="text">
+                            </input-set>    
+                        </input-group>
+                    </input-row>
+                    <input-row>
+                        <input-set class="xl">
+                            <label for="">Line 2</label>
+                            <input type="text">
+                        </input-set>
+                    </input-row>
+               </input-section>
+
+           </form>
+       </div>
    </body>
 </html>
