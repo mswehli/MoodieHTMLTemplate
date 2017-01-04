@@ -64,8 +64,9 @@ input-section {
     -webkit-flex-flow: row wrap;
     -ms-flex-direction: row;
     -ms-flex-wrap: wrap;
-    flex-flow: row wrap; }
-  input-section.horizontal {
+    flex-flow: row wrap;
+    padding: 10px 0 0 10px; }
+  input-section.v {
     display: -webkit-box;
     /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;
@@ -79,7 +80,7 @@ input-section {
     -ms-flex-direction: row;
     -ms-flex-wrap: nowrap;
     flex-flow: row nowrap; }
-    input-section.horizontal input-row {
+    input-section.v input-row {
       -webkit-flex: 1 0 auto;
       -moz-flex: 1 0 auto;
       flex: 1 0 auto;
@@ -97,7 +98,14 @@ input-section {
       -ms-flex-wrap: wrap;
       flex-flow: column wrap; }
 
+input-group,
+input-set {
+  padding: 0 10px 10px 0; }
+
 input-group {
+  -webkit-flex: 1 0 auto;
+  -moz-flex: 1 0 auto;
+  flex: 1 0 auto;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
@@ -110,30 +118,24 @@ input-group {
   -webkit-flex-flow: row wrap;
   -ms-flex-direction: row;
   -ms-flex-wrap: wrap;
-  flex-flow: row wrap;
-  padding: 10px; }
+  flex-flow: row wrap; }
   input-group input-set {
     padding: 0; }
 
 input-set {
-  -webkit-flex: 0 0 auto;
-  -moz-flex: 0 0 auto;
-  flex: 0 0 auto;
-  padding: 10px; }
+  -webkit-flex: 1 0 auto;
+  -moz-flex: 1 0 auto;
+  flex: 1 0 auto; }
   input-set.xs {
-    -webkit-flex: 0.125 0 75px;
-    -moz-flex: 0.125 0 75px;
-    flex: 0.125 0 75px; }
+    flex-basis: 12.5%; }
   input-set.s {
-    flex-basis: 117.5px; }
+    flex-basis: 25%; }
   input-set.m {
-    flex-basis: 160px; }
+    flex-basis: 50%; }
   input-set.l {
-    flex-basis: 245px; }
+    flex-basis: 75%; }
   input-set.xl {
-    -webkit-flex: 1 0 330px;
-    -moz-flex: 1 0 330px;
-    flex: 1 0 330px; }
+    flex-basis: 87.5%; }
   input-set label {
     display: block;
     line-height: 32.5px;

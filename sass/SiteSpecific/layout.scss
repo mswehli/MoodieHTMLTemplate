@@ -10,3 +10,52 @@ html,body
     font-size: $fontsize;
 }
 
+
+/*
+ * MEDIA QUERIES
+*/
+
+/* medium screen and smaller */
+@media (max-width: $breakpoint_screen_m){
+
+}
+/* medium screen only */
+@media (min-width: $breakpoint_screen_s) and (max-width: $breakpoint_screen_m){
+
+}
+
+
+/* small screen and smaller */
+@media (max-width: $breakpoint_screen_s){
+
+}
+/* small screen only */
+@media (min-width: $breakpoint_tablet_l) and (max-width: $breakpoint_screen_s){
+
+}
+
+/*large tablet and smaller */
+@media (max-width: $breakpoint_tablet_l){
+
+}
+/*large tablet only*/
+@media (min-width: $breakpoint_tablet_s) and (max-width: $breakpoint_tablet_l){
+
+}
+
+/* small tablet and smaller */
+@media (max-width: $breakpoint_tablet_s){
+
+}
+/* small tablet only */
+@media (min-width: $breakpoint_mobile) and (max-width: $breakpoint_tablet_s){
+
+}
+
+
+/* mobile */
+@media (max-width: $breakpoint_mobile )
+{
+
+}
+

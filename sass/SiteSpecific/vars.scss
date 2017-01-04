@@ -6,6 +6,13 @@ $max_width: 1200px;
 $min_height:420px;
 $unit: ($max_width - ($spacing*($grid+1)))/$grid;
 
+/* break points */
+$breakpoint_mobile: 440px;
+$breakpoint_tablet_s: 600px;
+$breakpoint_tablet_l: 800px;
+$breakpoint_screen_s: 1024px;
+$breakpoint_screen_m: 1280px;
+
 
 /* colours */
 $color_bg: #f1f1f1;

@@ -79,36 +79,115 @@
 }
 
 /* FLEX ITEMS */
-@mixin flex($direction, $wrap, $justify:"",$align:"",$align-items:"")
+@mixin flex($direction, $wrap, $justify:"",$align-content:"",$align-items:"")
 {
 	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox; /* TWEENER - IE 10 */
     display: -webkit-flex; /* NEW - Chrome */
     display: flex;
-	
+
+    //direction compatalibility
+    $orientation: vertical;
+    $direction-old: normal;
+    @if($direction==row)
+    {
+        $orientation: horizontal;
+        $direction-old: normal;
+
+    } @else if($direction==row-reverse)
+    {
+        $orientation: horizontal;
+        $direction-old: reverse;
+
+    } @else if($direction==column)
+    {
+        $orientation: vertical;
+        $direction-old: normal;
+
+    } @else if($direction == column-reverse)
+    {
+        $orientation: vertical;
+        $direction-old: reverse;
+
+    }
+
+    $ms-wrap-old:$wrap;
+    @if($wrap == "nowrap"){
+        $ms-wrap-old: none;
+    }
+
+    //old flex compatiability
+	-webkit-box-orient:$orientation;
+    -moz-box-orient:$orientation;
+    box-orient:$orientation;
+    -webkit-box-direction:$direction-old;
+    -moz-box-direction: $direction-old;
+    box-direction: $direction-old;
 	-webkit-flex-flow: $direction $wrap;
     -ms-flex-direction: $direction;
-    -ms-flex-wrap: $wrap;
+    -webkit-flex-direction:$direction;
+    -ms-flex-wrap: $ms-wrap-old;
+
+    flex-direction:$direction;
+    flex-wrap:$wrap;
     flex-flow: $direction $wrap;
+
+    @if($justify!=""){
+        @include flex-justify($justify);
+    }
+
+    @if($align-content!=""){
+        @include flex-align-content($align-content);
+    }
+
+    @if($align-items!=""){
+        @include flex-align-items($align-items);
+    }
 }
 
 @mixin flex-justify($justify)
 {
-	-ms-flex-pack: $justify;
+    //old ms compatiability
+    $ms-justify: $justify;
+    @if($justify == flex-start ){
+        $ms-justify: start;
+    } @else if($justify == flex-end ){
+        $ms-justify: end;
+    } @else if($justify == center ){
+        $ms-justify: center;
+    } @else if($justify == space-between ){
+        $ms-justify: justify;
+    } @else if($justify == space-around ){
+        $ms-justify: justify;
+    }
+    -webkit-box-pack: $ms-justify;
+	-ms-flex-pack: $ms-justify;
     -webkit-justify-content: $justify;
     justify-content: $justify;
 }
 @mixin flex-align-content($align)
 {
-	 -ms-flex-line-pack: $align;
+	-ms-flex-line-pack: $align;
     -webkit-align-content: $align;
     align-content: $align;
 }
 @mixin flex-align-items($align)
 {
+    //ms compatiability
+    $ms-align:start;
+    @if($align==flex-start){
+        $ms-align:start;
+    } @else if($align==flex-end){
+        $ms-align:end;
+    }@else if($align==center){
+        $ms-align:center;
+    }@else if($align==stretch){
+        $ms-align:stretch;
+    }
+    -webkit-box-align:$ms-align;
+    -ms-flex-align:$ms-align;
 	-webkit-align-items: $align;
-    -ms-flex-align: $align;
     align-items: $align;
 }
 @mixin flex-item($grow, $shrink, $basis)
@@ -118,24 +197,14 @@
         $basis: units2pixels($basis);
     }
     }
-    
+    -moz-box-flex: $grow;
+    -webkit-box-flex:$grow;
+    -ms-flex:$grow $shrink $basis;
 	-webkit-flex: $grow $shrink $basis;
     -moz-flex: $grow $shrink $basis;
     flex: $grow $shrink $basis;
 }
 
-//CHECK AND REWORK!
-/*@mixin grid-flex-container($grow, $shrink, $basis)
-{
-    @include flex-item($grow, $shrink, units2pixels($basis)+$spacing);
-    margin:0;
-}
-
-@mixin grid-flex-item($grow, $shrink, $basis)
-{
-    @include flex-item($grow, $shrink, $basis);
-    margin:$spacing 0 0 $spacing;
-}*/
 
 
 /* Transitions */

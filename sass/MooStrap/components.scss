@@ -1,4 +1,3 @@
-
 /* Different components that can be reused through sites directly */
 select,
 input[type="text"],
@@ -10,55 +9,44 @@ input[type="tel"],
 input[type="button"],
 input[type="submit"]
 {
+    border: 1px solid $color_accent_dark;
     height:$unit;
+    border-radius:0;
+    padding:0 $spacing;
+}
+
+textarea{
+    border: 1px solid $color_accent_dark;
 }
 
 input-section
 {
-    
-
-    @include flex(column,nowrap);
     max-width:100%;
     
     border-bottom: 1px solid #333;
-
-    &::last-child{
+     &:last-child{
         border:none;
     }
 
     input-row
     {
-        @include flex-item(1,0,100%);
+        width:100%;
+        min-width:$unit*2;
         @include flex(row,wrap);
-        
     }
+}
 
-
-    &.horizontal
-    {
-        @include flex(row,nowrap);
-
-        input-row
-        {
-            @include flex-item(1,0,auto);
-            @include flex(column,wrap);
-
-        }
-
-    }
-
-
-    
-
+input-group,
+input-set{
+    padding:0 $spacing $spacing 0;
 }
 
 input-group
 {
+    @include flex-item(1,0,auto);
     @include flex(row,wrap);
 
-    padding:$spacing;
-
-    input-set{
+    &>input-set{
         padding:0;
     }
 }
@@ -66,24 +54,24 @@ input-group
 input-set
 {
     //flex-item
-    @include flex-item(0,0,auto);
-    
-    padding:$spacing;
+    @include flex-item(1,0,auto);
+    min-height: $unit*2;
+    padding:0 $spacing;
 
     &.xs{
-        @include flex-item(0.125,0,units2pixels(2));
+        flex-basis:12.5%;
     }
     &.s{
-        flex-basis: units2pixels(3);
+        flex-basis: 25%;
     }
     &.m{
-        flex-basis: units2pixels(4);
+        flex-basis: 50%;
     }
     &.l{
-        flex-basis: units2pixels(6);
+        flex-basis: 75%;
     }
     &.xl{
-        @include flex-item(1,0,units2pixels(8));
+        flex-basis: 87.5%;
     }
 
     label{
@@ -97,5 +85,6 @@ input-set
     textarea
     {
             width:100%;
+            border-radius:0;
     }
 }
