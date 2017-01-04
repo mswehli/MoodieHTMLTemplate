@@ -1,0 +1,2 @@
+# MoodieHTMLTemplate
+Basic html template
