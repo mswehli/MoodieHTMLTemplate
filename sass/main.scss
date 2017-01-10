@@ -1,3 +1,5 @@
+/*Reset*/
+@import 'MooStrap/reset.scss';
 /* mixins */
 @import 'SiteSpecific/vars.scss';
 @import 'MooStrap/functions.scss';
@@ -8,6 +10,7 @@
 
 /*Page sass files*/
 @import 'SiteSpecific/layout.scss';
+@import 'MooStrap/burger-menu.scss';
 
 
 @import 'SiteSpecific/MooStrapExamples';

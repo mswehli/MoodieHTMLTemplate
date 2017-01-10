@@ -1,0 +1,82 @@
+/*Name of main menu container which will have class name changed*/
+$menu_container: lu-header-innercontainer;
+/*Name of burger container where icons will reside and be animated*/
+$burger-icon-container: lu-burger-container;
+
+/* 
+    FUNCTION TO ADD TO ONCLICK OF BURGER icons (replacing [$menu-container] with the id of the menu_container item
+    onclick="Moodieio.Expand('[$menu-container]');" 
+    HTML CODE TO BE EMBEDDED DIRECTLY INSIDE THE BURGER-ICON-CONTAINER
+    <div><span></span></div>
+    <div><span></span><span></span></div>
+    <div><span></span></div>
+*/
+
+##{$burger-icon-container} {
+    width:32px;
+    height:22px;
+    font-size:0;
+    cursor:pointer;
+  div {
+      height:4px;
+      width:100%;
+      margin-bottom:5px;
+      span{
+          display:inline-block;
+          height:100%;
+          width:100%;
+          background-color:$color_accent_light;
+
+          @include transition(background-color 0.5s, transform 0.5s, opacity 0.4s);
+          //transition:background-color 0.5s, transform 0.5s, opacity 0.4s;
+      }
+      
+      &:last-child{
+          margin-bottom:0;
+      }
+  }
+
+  div:nth-child(2){
+      span{
+          width:50%;
+      }
+  }
+
+  &:hover{
+      div{
+          span{
+              background-color:$color_accent_dark;
+          }
+      }
+  }
+}
+
+##{$menu_container}.expanded
+{
+    ##{$burger-icon-container} > div > span{
+       background-color:$color_accent_dark;
+    }
+    ##{$burger-icon-container} > div:first-child > span:first-child{
+        transform:translate(0px, 9px) rotate(135deg);
+    }
+
+
+    ##{$burger-icon-container} > div:nth-child(3) > span:first-child{
+        transform:translate(0px, -9px) rotate(-135deg);
+
+    }
+
+
+    ##{$burger-icon-container} > div:nth-child(2) > span:first-child{
+        transform:translate(-20px, 0);
+        opacity:0;
+    }
+    ##{$burger-icon-container} > div:nth-child(2) > span:nth-child(2){
+        transform:translate(20px, 0);
+        opacity:0;
+    }
+
+}
+
+
+

@@ -208,10 +208,11 @@
 
 
 /* Transitions */
-@mixin transition($selector, $time, $func:ease, $delay:0s)
+@mixin transition($selector...)
 {
-	-webkit-transition:$selector $time $func $delay;
-	-moz-transition:$selector $time $func $delay;
-	-o-transition:$selector $time $func $delay;
-	transition:$selector $time $func $delay;
+	-webkit-transition:$selector;
+	-moz-transition:$selector;
+	-o-transition:$selector;
+	transition:$selector;
 }
+

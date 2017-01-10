@@ -24,7 +24,6 @@ html,body
 
 }
 
-
 /* small screen and smaller */
 @media (max-width: $breakpoint_screen_s){
 
@@ -51,8 +50,6 @@ html,body
 @media (min-width: $breakpoint_mobile) and (max-width: $breakpoint_tablet_s){
 
 }
-
-
 /* mobile */
 @media (max-width: $breakpoint_mobile )
 {
