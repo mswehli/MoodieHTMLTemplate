@@ -74,7 +74,7 @@ var Moodieio = Moodieio || {};
     //assign the function
     sticky.create = stickyCreate;
 
-})(window.Moodieio.Stickyscroll = window.Moodieio.Stickscroll || {});
+})(window.Moodieio.Stickyscroll = window.Moodieio.Stickyscroll || {});
 
 (function(){
 

@@ -7,6 +7,8 @@
        
        <title>Title</title>
        <link rel="stylesheet" href="CSS/main.css">
+       <script src="scripts/slider.js" async></script>
+       <script src="scripts/hammer.min.js" async></script>
    </head>
    <body>
        <div>MENU</div> 
@@ -32,39 +34,79 @@
 
        <h2>Grid System</h2>
 
-            <div id="grid-system-container">
-                <div class="grid-item-Wx2"></div>
-                <div class="grid-item-subgrid">
+        <div id="grid-system-container">
+            <div class="grid-item-Wx2"></div>
+            <div class="grid-item-subgrid">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item-subgrid-subgrid">
                     <div class="grid-item"></div>
                     <div class="grid-item"></div>
                     <div class="grid-item"></div>
-                    <div class="grid-item-subgrid-subgrid">
-                        <div class="grid-item"></div>
-                        <div class="grid-item"></div>
-                        <div class="grid-item"></div>
-                        <div class="grid-item"></div>
-                    </div>
+                    <div class="grid-item"></div>
                 </div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
+            </div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+
+        <div class="summary">
+            Grid system uses 3 basic mixins
+            <ul>
+                <li>grid-container($unitSize:4,$xunits:"", $yunits:"",$maxWidth:100%) : Used for main parent container of the grid system. There should only be  and they should not be parented from each other</li>
+                <li>grid-subgrid($unitSize:2, $xunits:4, $yunits:4): a grid within a grid. There can be several and they can be parented by each other or grid-containers but not by grid-items</li>
+                <li>grid-item($xunits:"") : individual grid box. These are the actual containers for items within the grid. There can be many and can be parented by grid-containers and grid-subgrids but not by themselves (grid-items)</li>
+            </ul>
+        </div>
+
+        <h2>Slider</h2>
+
+        <div id="slider-container">
+
+            
+            <h3>Slide slide</h3>
+            <div class="slider-container" data-moodieio-slider="slide" data-timer=5000>
+                <div class="slider-innercontainer" data-moodieio-slider-container>
+                    <div class="slide" data-slide>1</div>
+                    <div class="slide" data-slide>2</div>
+                    <div class="slide" data-slide>3</div>
+                    <div class="slide" data-slide>4</div>
+                    <div class="slide" data-slide>5</div>
+                </div>
             </div>
 
-            <div class="summary">
-                Grid system uses 3 basic mixins
-                <ul>
-                    <li>grid-container($unitSize:4,$xunits:"", $yunits:"",$maxWidth:100%) : Used for main parent container of the grid system. There should only be  and they should not be parented from each other</li>
-                    <li>grid-subgrid($unitSize:2, $xunits:4, $yunits:4): a grid within a grid. There can be several and they can be parented by each other or grid-containers but not by grid-items</li>
-                    <li>grid-item($xunits:"") : individual grid box. These are the actual containers for items within the grid. There can be many and can be parented by grid-containers and grid-subgrids but not by themselves (grid-items)</li>
-                </ul>
+            <h3>Class change slide</h3>
+            <div class="slider-container" data-moodieio-slider="class" data-timer=2500>
+                <div class="slider-innercontainer" data-moodieio-slider-container>
+                    <div class="slide2" data-slide>1</div>
+                    <div class="slide2" data-slide>2</div>
+                    <div class="slide2" data-slide>3</div>
+                    <div class="slide2" data-slide>4</div>
+                    <div class="slide2" data-slide>5</div>
+                </div>
             </div>
+
+            <h3>Centered slide</h3>
+            <div class="slider-container" data-moodieio-slider="center" data-timer=3000>
+                <div class="slider-innercontainer" data-moodieio-slider-container>
+                    <div class="slide3" data-slide>1</div>
+                    <div class="slide3" data-slide>2</div>
+                    <div class="slide3" data-slide>3</div>
+                    <div class="slide3" data-slide>4</div>
+                    <div class="slide3" data-slide>5</div>
+                </div>
+            </div>
+        </div>
+
        <h2>Form</h2>
 
        <div id="form-container">

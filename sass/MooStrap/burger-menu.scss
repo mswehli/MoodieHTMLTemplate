@@ -1,16 +1,21 @@
+/* 
+ *  Basic animated burger menu V0.1.
+ * Use included expand script to expand menu by added class to item set below as $menu_container
+    FUNCTION TO ADD TO ONCLICK OF BURGER icons (replacing [$menu-container] with the id of the menu_container item
+    onclick="Moodieio.Expand('[$menu-container]');" 
+    
+    !---- IMPORTANT ------!
+    HTML CODE TO BE EMBEDDED DIRECTLY INSIDE THE BURGER-ICON-CONTAINER: 
+    <div><span></span></div>
+    <div><span></span><span></span></div>
+    <div><span></span></div>
+*/
+
 /*Name of main menu container which will have class name changed*/
 $menu_container: lu-header-innercontainer;
 /*Name of burger container where icons will reside and be animated*/
 $burger-icon-container: lu-burger-container;
 
-/* 
-    FUNCTION TO ADD TO ONCLICK OF BURGER icons (replacing [$menu-container] with the id of the menu_container item
-    onclick="Moodieio.Expand('[$menu-container]');" 
-    HTML CODE TO BE EMBEDDED DIRECTLY INSIDE THE BURGER-ICON-CONTAINER
-    <div><span></span></div>
-    <div><span></span><span></span></div>
-    <div><span></span></div>
-*/
 
 ##{$burger-icon-container} {
     width:32px;
