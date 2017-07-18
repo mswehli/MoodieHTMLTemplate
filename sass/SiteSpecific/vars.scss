@@ -13,39 +13,39 @@ $breakpoint_tablet_l: 800px;
 $breakpoint_screen_s: 1024px;
 $breakpoint_screen_m: 1280px;
 
+/* TEXT */
+$color_text: #242424;
+$color_text_inv:#f1f1f1;
 
 /* colours */
-$color_bg: #f1f1f1;
+$color_bg:#f1f1f1;
+$color_main: #29668F;
+$color_dark:#242424;
+$color_mid:#fff;
+$color_light:#fff;
 
-$color_main: #4b63ae;
+$color_highlight: #BC1A1A;
 
-
-
-$color_accent_dark: #4b63ae;
-$color_accent_mid: #8995BB;
-$color_accent_lightmid: #47a0bb;
-$color_accent_light: #e1e1e1;
-
-$color_bg_input: #ffffff;
-
-
-$color_text: #111111;
-$color_text_inverse:#f1f1f1;
+/* burger icon colors */
+$burgericon_color:$color_text_inv;
+$burgericon_color_hover:$color_light;
 
 
 /* Fonts */
 $font_base: 'Lato', sans-serif;
-$font_header: 'Roboto Condensed', sans-serif;
+$font_header: 'Raleway', sans-serif;
+$font_quote: 'Arvo', serif;
 
 /* font-sizes */
+$fontsize_title: 3.2rem;
 $fontsize_h1: 2.2rem;
-$fontsize_h2: 2rem;
-$fontsize_h3: 1.5rem;
+$fontsize_h2: 1.6rem;
+$fontsize_h3: 1.4rem;
 $fontsize_h4: 1.3rem;
 $fontsize_h5: 1.2rem;
 $fontsize_h6: 1rem;
 
-$fontsize: 1rem;
+$fontsize: 1.1rem;
 
 $fontsize_xl: 1.4rem;
 $fontsize_l: 1.2rem;
@@ -54,5 +54,21 @@ $fontsize_xs:0.85rem;
 
 $fontsize_menu:1.15rem;
 $fontsize_menu_mobile:1rem;
+
+$fontsize_label: 0.9rem;
+$fontsize_input: 1rem;
+
+/* inputs */
+$color_input_bg: #F1EEEE;
+$color_input_border:#F1EEEE;
+
+$color_input_selected_bg:#FFFFFF;
+$color_input_selected_border:#727070;
+
+$input_height:45px;
+$input_row_spacing: 20px;
+
+$btn_height:60px;
+
 
 

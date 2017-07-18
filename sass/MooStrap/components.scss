@@ -1,24 +1,147 @@
 /* Different components that can be reused through sites directly */
+
+blockquote{
+    width:100%;
+    padding:30px 0;
+    font-size:$fontsize_h2;
+    font-family: $font_quote;
+    font-style: italic;
+    text-align:center;
+}
+
+/* 
+ INPUTS
+*/
 select,
 input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="datetime"],
 input[type="datetime-local"],
+input[type="number"],
 input[type="tel"],
-input[type="button"],
-input[type="submit"]
+input[type="button"]
 {
-    border: 1px solid $color_accent_dark;
-    height:$unit;
+    height:$input_height;
     border-radius:0;
     padding:0 $spacing;
+
 }
 
 textarea{
-    border: 1px solid $color_accent_dark;
+    height:$input_height*3;
+    padding:$spacing;
 }
 
+select,
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="tel"],
+input[type="button"],
+textarea
+{
+    border: 1px solid $color_input_border;
+    background-color:$color_input_bg;
+
+    color:$color_text;
+    font-size:$fontsize_input;
+    font-family: $font_base;
+    font-weight:normal;
+
+    /*reset non-standarding form styling*/
+    -webkit-appearance: none;
+    box-shadow:none;
+
+    &:focus{
+        border:1px solid $color_input_selected_border;
+        background-color:$color_input_selected_bg;
+    }
+
+    /*Placeholder color*/
+    $cpt: #ccc;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $cpt;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $cpt;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $cpt;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $cpt;
+    }
+}
+
+/* Buttons */
+input[type="submit"],
+button,
+.btn
+{
+    height: $btn_height;
+    min-width:120px;
+    line-height:60px;
+    border:none;
+    border-radius: 0;
+
+    -webkit-appearance: none;
+
+    text-align:center;
+    padding:0 20px;
+    font-size:1rem;
+    font-family:$font_header;
+    color:$color_text_inv;
+    font-weight:normal;
+
+    cursor:pointer;
+    // outline:none;
+    // &:focus{
+    //     background-color:#D04444;
+    // }
+
+    a{
+        width:100%;
+        height:100%;
+        color:inherit;
+        text-decoration: none;
+    }
+
+    &.cta{
+        background-color:$color_highlight;
+    }
+
+    &.default{
+        background-color:#CA95FF;
+    }
+
+    &.form{
+        background-color:#BBA44A;
+    }
+
+    &.bad{
+        background-color:#727070;
+    }
+}
+
+.btn{
+    display: inline-block;
+
+    &>a{
+        display:block;
+        width:100%;
+        height:100%;
+    }
+}
+
+/*
+ *
+ *  INPUT LAYOUT
+ *
+ */
 input-section
 {
     max-width:100%;
@@ -33,6 +156,7 @@ input-section
         width:100%;
         min-width:$unit*2;
         @include flex(row,wrap);
+        margin-bottom:$input_row_spacing;
     }
 }
 
@@ -78,6 +202,7 @@ input-set
         display:block;
         line-height:$unit;
         width:100%;
+        font-size:$fontsize_label;
     }
 
     input,
@@ -88,3 +213,4 @@ input-set
             border-radius:0;
     }
 }
+

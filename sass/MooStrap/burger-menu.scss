@@ -2,7 +2,7 @@
  *  Basic animated burger menu V0.1.
  * Use included expand script to expand menu by added class to item set below as $menu_container
     FUNCTION TO ADD TO ONCLICK OF BURGER icons (replacing [$menu-container] with the id of the menu_container item
-    onclick="Moodieio.Expand('[$menu-container]');" 
+    onclick="moodio.Expand('[$menu-container]');" 
     
     !---- IMPORTANT ------!
     HTML CODE TO BE EMBEDDED DIRECTLY INSIDE THE BURGER-ICON-CONTAINER: 
@@ -12,10 +12,11 @@
 */
 
 /*Name of main menu container which will have class name changed*/
-$menu_container: lu-header-innercontainer;
+$menu_container: main-header;
 /*Name of burger container where icons will reside and be animated*/
-$burger-icon-container: lu-burger-container;
+$burger-icon-container: burger-container;
 
+$thickness:2px;
 
 ##{$burger-icon-container} {
     width:32px;
@@ -23,14 +24,14 @@ $burger-icon-container: lu-burger-container;
     font-size:0;
     cursor:pointer;
   div {
-      height:4px;
+      height:$thickness;
       width:100%;
-      margin-bottom:5px;
+      margin-bottom: (9px - $thickness);
       span{
           display:inline-block;
           height:100%;
           width:100%;
-          background-color:$color_accent_light;
+          background-color:$burgericon_color;
 
           @include transition(background-color 0.5s, transform 0.5s, opacity 0.4s);
           //transition:background-color 0.5s, transform 0.5s, opacity 0.4s;
@@ -50,7 +51,7 @@ $burger-icon-container: lu-burger-container;
   &:hover{
       div{
           span{
-              background-color:$color_accent_dark;
+              background-color:$burgericon_color_hover;
           }
       }
   }
@@ -59,7 +60,7 @@ $burger-icon-container: lu-burger-container;
 ##{$menu_container}.expanded
 {
     ##{$burger-icon-container} > div > span{
-       background-color:$color_accent_dark;
+       background-color:$burgericon_color_hover;
     }
     ##{$burger-icon-container} > div:first-child > span:first-child{
         transform:translate(0px, 9px) rotate(135deg);
@@ -80,8 +81,4 @@ $burger-icon-container: lu-burger-container;
         transform:translate(20px, 0);
         opacity:0;
     }
-
 }
-
-
-
