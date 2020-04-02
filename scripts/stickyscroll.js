@@ -1,5 +1,5 @@
 "use strict";
-var Moodieio = Moodieio || {};
+var moodio = moodio || {};
 
 /*
  * Basic sticky scroll script V0.1. Simply adds/removes a class when it needs to be sticky
@@ -74,16 +74,16 @@ var Moodieio = Moodieio || {};
     //assign the function
     sticky.create = stickyCreate;
 
-})(window.Moodieio.Stickyscroll = window.Moodieio.Stickyscroll || {});
+})(window.moodio.Stickyscroll = window.moodio.Stickyscroll || {});
 
 (function(){
 
     var onLoad = function(){
         //foreach slider init a slider
-        var els_allStickyscroll = document.querySelectorAll("[data-moodieio-stickyscroll]");
+        var els_allStickyscroll = document.querySelectorAll("[data-moodio-stickyscroll]");
 
         for (var i=0, len = els_allStickyscroll.length; i<len; i++){
-            new Moodieio.Stickyscroll.create(els_allStickyscroll[i]);
+            new moodio.Stickyscroll.create(els_allStickyscroll[i]);
         }
     }
     window.addEventListener("load", onLoad);

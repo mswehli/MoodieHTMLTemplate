@@ -1,12 +1,12 @@
 {
   "name": "html",
   "version": "1.0.0",
-  "description": "Moodie.io base HTML Template",
+  "description": "moodio.co.uk base HTML Template",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mahmoud Swehli <mahmoud@moodie.io> (http://www.moodie.io/)",
+  "author": "Mahmoud Swehli <hello@moodio.co.uk> (http://www.moodio.co.uk/)",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.17.5",

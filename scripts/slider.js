@@ -1,15 +1,15 @@
 "use strict";
-var Moodieio = Moodieio || {};
+var moodio = moodio || {};
 
 /*
  * SIMPLE SLIDER SCRIPT V0.1
  * How to use:
- * add the attribute data-moodieio-slider="[type]" to the main slide container div
- * add the attibute data-moodieio-slider-container to the inner container where required
+ * add the attribute data-moodio-slider="[type]" to the main slide container div
+ * add the attibute data-moodio-slider-container to the inner container where required
  * add the attribute data-timer="[####]" to select the timing in milliseconds. a time of 0 will prevent the slide from auto moving to next slide
  * add the attribute data-slide to each individual slide
  * slider types are: [slide, center, class].
- * slide = basic sliding operation. Requires an inner container with the data attribute data-moodieio-slider-container.
+ * slide = basic sliding operation. Requires an inner container with the data attribute data-moodio-slider-container.
  * center = slide elements are not resized, but element is instead moved to be centered. useful for when sliding is only required for mobile and smaller screens
  * class = class names for the slides are selected based on their position
  * default values used for classes are:
@@ -67,7 +67,7 @@ var Moodieio = Moodieio || {};
         console.log("slide time: " + slideTime);
         // console.log("slider create called for: " + elem.id);
         this.options = (typeof(options) !== 'undefined') ? options : {default:true, 
-            type: ((elem.dataset.moodieioSlider) ? elem.dataset.moodieioSlider : 'class'),
+            type: ((elem.dataset.moodioSlider) ? elem.dataset.moodioSlider : 'class'),
             slideTime: slideTime,
             loop: loop,
             classNames:{previous:'previous',current: 'current', next:'next'}};
@@ -78,10 +78,10 @@ var Moodieio = Moodieio || {};
         this.el_container = elem;
 
         //inner container for slider. movement occurs on this
-        this.el_innerContainer = this.el_container.querySelector('[data-moodieio-slider-container]');
+        this.el_innerContainer = this.el_container.querySelector('[data-moodio-slider-container]');
         
         //container for status items
-        this.el_status = this.el_container.querySelector('[data-moodieio-slider-status]');
+        this.el_status = this.el_container.querySelector('[data-moodio-slider-status]');
 
         //array to store sizes of slides to avoid reflow performance issues with calling offsetWidth
         this.slideOffsets = [];
@@ -90,13 +90,13 @@ var Moodieio = Moodieio || {};
 
          if(this.el_innerContainer===null)
         {
-            console.error("Moodieio.slider: Inner container not found.");
+            console.error("moodio.slider: Inner container not found.");
             return;
         }
 
         this.els_slides = this.el_container.querySelectorAll("[data-slide]");
         if(this.els_slides.length == 0){
-            console.error("Moodieio.slider: No slides found. please include correct data attribute to slides");
+            console.error("moodio.slider: No slides found. please include correct data attribute to slides");
             return;
         }
 
@@ -107,11 +107,11 @@ var Moodieio = Moodieio || {};
         if(this.el_status !== null){
             this.statusEnabled = true;   
             //first store class name
-            this.options.classNames.currentStatus = this.el_status.dataset.moodieioSliderStatus;
+            this.options.classNames.currentStatus = this.el_status.dataset.moodioSliderStatus;
 
             //check if a inner container is set for status items and get class
-            this.options.classNames.statusInner = (typeof(this.el_status.dataset.moodieioSliderStatusInner) !== 'undefined') ? 
-                                                this.el_status.dataset.moodieioSliderStatusInner : null;
+            this.options.classNames.statusInner = (typeof(this.el_status.dataset.moodioSliderStatusInner) !== 'undefined') ? 
+                                                this.el_status.dataset.moodioSliderStatusInner : null;
             //call function to init
             initStatus.bind(this)();
         }
@@ -128,7 +128,7 @@ var Moodieio = Moodieio || {};
         } else if(this.options.type === "center"){
             initAsCenter.bind(this)();
         }else {
-            console.error("Moodieio.Slider: invalid slide type for " + elem.id);
+            console.error("moodio.Slider: invalid slide type for " + elem.id);
         }
 
         //call the common initialization function
@@ -565,18 +565,18 @@ var Moodieio = Moodieio || {};
 
     slider.create = sliderCreate;
 
-})(window.Moodieio.Slider = window.Moodieio.Slider || {});
+})(window.moodio.Slider = window.moodio.Slider || {});
 
 
 (function(){
 
     var onLoad = function(){
         //foreach slider init a slider
-        var els_allSliders = document.querySelectorAll("[data-moodieio-slider]");
+        var els_allSliders = document.querySelectorAll("[data-moodio-slider]");
         //console.dir(els_allSliders);
         var allSliders = [];
         for(var i = 0, len = els_allSliders.length; i<len; i++){
-            allSliders.push(new Moodieio.Slider.create(els_allSliders[i]));
+            allSliders.push(new moodio.Slider.create(els_allSliders[i]));
         }
     }
 

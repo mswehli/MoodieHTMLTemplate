@@ -1,6 +1,6 @@
-var Moodieio = Moodieio || {};
+var moodio = moodio || {};
 
-Moodieio.Expand = function(eId)
+moodio.Expand = function(eId)
 {
     console.log("expanding: " + eId);
     //google analytics event if available
